@@ -19,5 +19,8 @@ class Products extends Model
     ];
     public $timestamps=false;
     public $incrementing=false;
+    public function BIllDetail(){
+        $this->hasMany(Billdetail::class, 'id', 'id');
+    }
 
 }
