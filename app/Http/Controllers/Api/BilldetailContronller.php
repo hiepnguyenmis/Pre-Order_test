@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\BillDetail;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+
+class BilldetailContronller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $result=User::all();
-        return response()->json($result);
+        $resutl= Billdetail::all();
+        return response()->json($resutl);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -27,7 +29,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-       return User::create($request);
+        return Billdetail::create($request);
     }
 
     /**
@@ -38,7 +40,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

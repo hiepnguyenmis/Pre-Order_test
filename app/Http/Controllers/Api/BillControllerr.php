@@ -38,7 +38,8 @@ class BillControllerr extends Controller
      */
     public function show($id)
     {
-
+        $bill=Bill::where('id','=',$id)->get();
+        return response()->json($bill);
     }
 
     /**
@@ -50,8 +51,12 @@ class BillControllerr extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $bill=Bill::findOrFail($id);
-        return $bill->update($request->all());
+
+        $bill->update($request->all());
+        dd($request);
+        return response()->json($bill);
 
     }
 
@@ -63,6 +68,9 @@ class BillControllerr extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bill=Bill::findOrFail($id);
+        return $bill->delete();
     }
+
+
 }
