@@ -17,6 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
@@ -42,6 +43,6 @@ class User extends Authenticatable
     ];
 
     public function Bill(){
-            $this->hasMany(Bill::class, 'id','id');
+        return $this->hasMany(Bill::class, 'user_id', 'id');
     }
 }

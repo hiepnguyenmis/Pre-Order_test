@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bill;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BillControllerr extends Controller
@@ -71,6 +72,8 @@ class BillControllerr extends Controller
         $bill=Bill::findOrFail($id);
         return $bill->delete();
     }
-
-
+    public function GetAllbillUser($id){
+        $user=User::with('Bill')->where('id','=',$id)->get();
+        return response()->json($user);
+    }
 }
